@@ -1,0 +1,151 @@
+package java200;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class javaFrom014Until030 {
+
+	public static void main(String[] args) {
+		java014(); java015(); java016(); java017();	java018();
+		java019(); java020(); java021(); java022(); java023();
+		java014(); // java024는 java014를 호출하는 문제
+		java025(); java026(); java027(); java028();
+		java028(); // java029, java030은 java028을 호출하는 문제
+				
+	}
+
+	public static void java028() {
+		final int PHYSICAL = 23;
+		int index = PHYSICAL;
+		int days = 1200;
+		double phyval = 100 * Math.sin((days % index) * 2 * Math.PI / index);
+		System.out.printf("나의 신체 지수 %1$.2f입니다.\n", phyval);
+	}
+
+	public static void java027() {
+		final int PHYSICAL = 23;
+		int index = PHYSICAL;
+		int days = 1200;
+		double vals = (days % index) * 2 * Math.PI / index;
+		System.out.println(Math.toDegrees(vals) + "도");
+	}
+
+	public static void java026() {
+		final int PHYSICAL = 23;
+		System.out.println(PHYSICAL);
+		int index = PHYSICAL;
+		double vals = 2 * Math.PI / index;
+		System.out.println(vals + "라디안");
+	}
+
+	public static void java025() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int choice = sc.nextInt();
+		System.out.println(choice);
+
+		System.out.print("실수를 입력하세요 : ");
+		double rchoice = sc.nextDouble();
+		System.out.println(rchoice);
+
+		System.out.print("문자열을 입력하세요 : ");
+		String schoice = sc.next();
+		System.out.println(schoice);
+	}
+
+	public static void java023() {
+		char a = '닳';
+		String letter = "동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세";
+		int letterNumber = letter.length();
+		int loc = letter.indexOf(a);
+		System.out.printf("\"%s\"=> %d자이며, '%c'은 %d번째 있다.\n", letter, letterNumber, a, loc);
+		char b = letter.charAt(loc);
+		System.out.printf("\"%s\"의 %d번째 문자는 '%c'이다.", letter, loc, b);
+	}
+
+	public static void java022() {
+		double S = 6;
+		double P = 0.75;
+		double L = 200;
+		double T = 0;
+		double A = 1;
+		double Y = 2;
+		double ups1 = P * L * (Y + 9);
+		double downs = (T + 1) * (A + 1) * (Y + 10) * (L + 20);
+		double ups2 = 12 + 3 * S / 8.0;
+		double high = ups1 / downs * ups2;
+		System.out.printf("적당한 하이힐 높이는 %1$.2fcm입니다", high);
+	}
+
+	public static void java021() {
+		int[] grade = { 90, 80, 89 };
+		int tot = grade[0] + grade[1] + grade[2];
+		int average = tot / 3;
+		System.out.printf("국어 %d점, 영어 %d점, 수학 %d점 => \t", grade[0], grade[1], grade[2]);
+		System.out.printf("총점 %d점, 평균 %d점\n", tot, average);
+	}
+
+	public static void java020() {
+		int kor = 90;
+		int eng = 80;
+		int math = 89;
+		int tot = kor + eng + math;
+		int average = tot / 3;
+		System.out.printf("국어 %d점, 영어 %d점, 수학 %d점 => \t", kor, eng, math);
+		System.out.printf("총점 %d점, 평균 %d점\n", tot, average);
+	}
+
+	public static void java019() {
+		int makeOne = (int) (Math.random() * 10);
+		System.out.println(makeOne);
+	}
+
+	public static void java018() {
+		String slat = "37.52127220511242  ";
+		double latitude = Double.parseDouble(slat.trim());
+		System.out.println(latitude);
+	}
+
+	public static void java017() {
+		double latitude = 37.52127220511242;
+		double longtitude = 127.0074462890625;
+		JLocation jloc = new JLocation();
+		jloc.lat = latitude;
+		jloc.lng = longtitude;
+
+		JLocation newLoc = jloc;
+		System.out.println(newLoc.lat);
+	}
+
+	public static class JLocation {
+		public double lat;
+		public double lng;
+	}
+
+	public static void java016() {
+		int[] m = { 1, 2, 3 };
+		int[] n = new int[] { 1, 2, 3 };
+		String card = "H8";
+		Date d = new Date();
+		Calendar cal = Calendar.getInstance();
+		System.out.println(card);
+		System.out.println(d);
+		System.out.println(cal);
+	}
+
+	public static void java015() {
+		boolean isL = false;
+		char suit = 'H';
+		int year = 2020;
+		double latitude = 37.52127220511242;
+		double longtitude = 127.0074462890625;
+		System.out.println(latitude + "\t" + longtitude);
+	}
+
+	public static void java014() {
+		System.out.println("*******************************");
+		System.out.println("이 프로그래밍은 Java200이 만들었습니다.");
+		System.out.println("*******************************");
+	}
+}
