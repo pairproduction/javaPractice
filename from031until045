@@ -1,0 +1,258 @@
+package java200;
+
+public class javaFrom031Until045 {
+
+	public static void main(String[] args) {
+		java031();	java032();	java033();	java034();	java035();
+		java036();	java037();	java038();	java039();	java040();
+		java041();	java042();	java043();	java044();	java045();
+	}
+
+	public static void java045() {
+		EvenOdd.showOddnEvenf(122);
+	}
+
+	public static void java044() {
+		EvenOdd.showOddnEven(122);
+	}
+
+	public static void java043() {
+		EvenOdd.showOddnEvenw(122);
+	}
+
+	public static class EvenOdd {
+		public static void showOddnEvenf(int n) {
+			int temp = n;
+			for (; temp != 1;) {
+				if (temp % 2 == 1) {
+					temp = temp * 3 + 1;
+				} else {
+					temp /= 2;
+				}
+				System.out.printf("[" + temp + "]");
+			}
+			System.out.println("\n----------------------");
+		}
+
+		public static void showOddnEven(int n) {
+			int temp = n;
+			do {
+				if (temp % 2 == 1) {
+					temp = temp * 3 + 1;
+				} else {
+					temp /= 2;
+				}
+				System.out.printf("[" + temp + "]");
+			} while (temp != 1);
+			System.out.println("\n----------------------");
+		}
+
+		public static void showOddnEvenw(int n) {
+			int temp = n;
+			while (temp != 1) {
+				if (temp % 2 == 1) {
+					temp = temp * 3 + 1;
+				} else {
+					temp /= 2;
+				}
+				System.out.printf("[" + temp + "]");
+			}
+			System.out.println("\n----------------------");
+		}
+	}
+
+	public static void java042() {
+		for (int i = 0; i < 101; i++) {
+			double fahrenheit = 9.0 / 5 * i + 32;
+			System.out.printf("섭씨 %d도 = 화씨 %.2f도\n", i, fahrenheit);
+		}
+	}
+
+	public static void java041() {
+		JCalendar hc = new JCalendar();
+		System.out.println(hc.isLeapYear(2017));
+	}
+
+	public static class JCalendar {
+		public boolean isLeapYear(int year) {
+			boolean isS = false;
+			if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+				isS = true;
+			}
+			return isS;
+		}
+	}
+
+	public static void java040() {
+		String money = "USD";
+		double result = SwitchStringCondition.toMoney(money);
+		System.out.printf("%s => %f\n", money, result);
+	}
+
+	public static class SwitchStringCondition {
+		public static double toMoney(String c) {
+			double tot = 0.0;
+			switch (c) {
+			case "USD":	tot = 1126.5; break;
+			case "JPY":	tot = 110.6; break;
+			case "CNY":	tot = 10.5;	break;
+			default: tot = 1; break;
+			}
+			return tot;
+		}
+	}
+
+	public static void java039() {
+		char c = 'J';
+		int result = toNum(c);
+		System.out.printf("%c=>%d\n", c, result);
+	}
+
+	public static int toNum(char c) {
+		int tot = 0;
+		switch (c) {
+		case 'A': tot = 1; break;
+		case 'T': tot = 10;	break;
+		case 'J': tot = 11;	break;
+		case 'Q': tot = 12;	break;
+		case 'K': tot = 13;	break;
+		default: tot = c - '0';	break;
+		}
+		return tot;
+	}
+
+	public static void java038() {
+		PEI index = PEI.PHYSICAL;
+		double value = 0.86;
+		System.out.println("신체 지수 주기값 : " + index.getPei());
+		String st = BioSwitch.textInfor(index, value);
+		System.out.println(st);
+		System.out.println(index.ordinal());
+		System.out.println(index.name());
+		System.out.println(index);
+		System.out.println(index.getPei());
+	}
+
+	public enum PEI {
+		PHYSICAL(23), EMOTIONAL(28), INTELLECTUAL(33);
+		private final int peiValue;
+
+		PEI(int pie) {
+			this.peiValue = pie;
+		}
+
+		public int getPei() {
+			return peiValue;
+		}
+	}
+
+	public static void java037() {
+		int index = BioSwitch.PHYSICAL;
+		double value = 0.86;
+		String st = BioSwitch.textInfor(index, value);
+		System.out.println(st);
+	}
+
+	public static void java036() {
+		int index = 23;
+		double value = 0.86;
+		String st = BioSwitch.textInfor(index, value);
+		System.out.println(st);
+	}
+
+	public static class BioSwitch {
+
+		public static final int PHYSICAL = 23;
+		public static final int EMOTIONAL = 28;
+		public static final int INTELLECTUAL = 33;
+
+		public static String textInfor(PEI index, double value) {
+			String result = "";
+			switch (index) {
+			case PHYSICAL: result = "신체지수 : "; break;
+			case EMOTIONAL:	result = "감정지수 : "; break;
+			case INTELLECTUAL: result = "지성지수 : "; 	break;
+			default: result = "미결정 : "; break;
+			}
+			return result + (value * 100);
+		}
+
+		public static String textInfor(int index, double value) {
+			String result = "";
+			switch (index) {
+			case PHYSICAL: result = "신체지수 : "; break;
+			case EMOTIONAL:	result = "감정지수 : "; break;
+			case INTELLECTUAL: result = "지성지수 : "; break;
+			default: result = "미결정 : "; break;
+			}
+			return result + (value * 100);
+		}
+
+	}
+
+	public static void java035() {
+		int temp = 99;
+		temp = (temp % 2 == 1) ? temp * 3 + 1 : temp / 2;
+		System.out.printf("계산 후 = %d\n", temp);
+	}
+
+	public static void java034() {
+		int temp = 99;
+		if (temp % 2 == 1) {
+			temp = temp * 3 + 1;
+		} else {
+			temp = temp / 2;
+		}
+		System.out.printf("계산 후 = %d\n", temp);
+	}
+
+	public static void java033() {
+		double latitude1 = 37.52127220511242;
+		double longitude1 = 127.0074462890625;
+		double latitude2 = 35.137879119634185;
+		double longitude2 = 129.04541015625;
+		Geo geo1 = new Geo();
+		geo1.latitude = latitude1;
+		geo1.longitude = longitude1;
+		System.out.println(geo1.latitude + "\t" + geo1.longitude);
+		Geo geo2 = new Geo();
+		geo2.latitude = latitude2;
+		geo2.longitude = longitude2;
+		Geo geo = geo1;
+		System.out.println(geo.latitude + "\t" + geo.longitude);
+	}
+
+	public static class Geo {
+		public double latitude;
+		public double longitude;
+	}
+
+	public static void java032() {
+		double latitude1 = 37.52127220511242;
+		double longitude1 = 127.0074462890625;
+		double latitude2 = 35.137879119634185;
+		double longitude2 = 129.04541015625;
+		System.out.println(latitude1 + "\t" + longitude1);
+		double[] latlng1 = { latitude1, longitude1 };
+		double[] latlng2 = { latitude2, longitude2 };
+		System.out.println(latlng1[0] + "\t" + latlng1[1]);
+		double[][] latlng = { { latitude1, longitude1 }, { latitude2, longitude2 } };
+		System.out.println(latlng[0][0] + "\t" + latlng[0][1]);
+	}
+
+	public static void java031() {
+		FRUIT pear = FRUIT.APPLE;
+		FRUIT pear2 = FRUIT.MANGO;
+		System.out.println(pear);
+		System.out.println(pear.name());
+		System.out.println(pear.ordinal());
+		System.out.println(pear2.ordinal());
+		FRUIT[] fruits = FRUIT.values();
+		System.out.println(fruits[0]);
+	}
+
+	public enum FRUIT {
+		APPLE, BANANA, MANGO;
+	}
+
+}
