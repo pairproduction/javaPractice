@@ -1,0 +1,255 @@
+package java200;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+public class javaFrom046Until060 {
+
+	public static void main(String[] args) {
+		java046(); java047(); java048(); java049(); java050();
+		java051(); java052(); java053(); java054(); java055();
+		java056(); java057(); java058(); java059(); java060();
+
+		
+
+	}
+
+	public static void java060() {
+		List<Integer> ilist = new ArrayList<>();
+		int s = 0;
+		for (int i = 1; i <= 10; i++) {
+			ilist.add(i);
+		}
+
+		ilist = ilist.stream().filter(i -> i % 2 == 1).map(i -> i * i).collect(Collectors.toList());
+		ilist.forEach(i -> {
+			System.out.printf(i + "\t");
+		});
+		System.out.println();
+		s = ilist.stream().reduce(0, Integer::sum);
+		System.out.println("1~10 사이의 홀수에 대한 제곱합 : " + s);
+	}
+
+	public static void java059() {
+		List<Integer> ilist = new ArrayList<>();
+		int s = 0;
+		for (int i = 1; i <= 100; i++) {
+			ilist.add(i);
+		}
+
+		s = ilist.stream().reduce(0, Integer::sum);
+		System.out.println("1~100의 합 : " + s);
+		s = ilist.stream().filter(i -> i % 2 == 1).reduce(0, Integer::sum);
+		System.out.println("1~100 사이 홀수의 합 : " + s);
+		s = ilist.stream().filter(i -> i % 2 == 1).reduce(0, (x, y) -> x + y);
+		System.out.println("1~100 사이 홀수의 합 : " + s);
+		s = ilist.stream().filter(i -> i % 2 == 1).reduce(0, new BinaryOperator<Integer>() {
+			@Override
+			public Integer apply(Integer t, Integer u) {
+				return t + u;
+			}
+		});
+		System.out.println("1~100 사이 홀수의 합 : " + s);
+	}
+
+	public static void java058() {
+		List<Integer> ilist = new ArrayList<>();
+		int s = 0;
+		for (int i = 1; i <= 10; i++) {
+			ilist.add(i);
+		}
+		for (int m : ilist) {
+			if (m % 2 == 1) {
+				s += m * m;
+				System.out.printf("%d\t", m * m);
+			}
+		}
+		System.out.println();
+		System.out.println("1~10 사이의 홀수에 대한 제곱합 : " + s);
+	}
+
+	public static void java057() {
+		List<Integer> mmlists = Arrays.asList(1, 6, 16, 22, 23, 33);
+		mmlists.forEach(m -> {
+			System.out.printf(m + "\t");
+		});
+		System.out.println();
+		Consumer<Integer> consume = (Integer m) -> {
+			System.out.printf(m + "\t");
+		};
+		mmlists.forEach(consume);
+	}
+
+	public static void java056() {
+		List<Integer> ilist = new ArrayList<>();
+		for (int i = 1; i <= 10; i++) {
+			ilist.add(i);
+		}
+		for (int i = 0; i < ilist.size(); i++) {
+			int m = ilist.get(i);
+			System.out.printf("%d\t", m);
+		}
+		System.out.println();
+	}
+
+	public static void java055() {
+		int[] mm = { 1, 6, 16, 22, 23, 33 };
+		print(mm);
+		int a = 1, b = 6, c = 16;
+		print(a);
+		print(a, b);
+		print(a, b, c);
+	}
+
+	public static void print(int... mm) {
+		for (int m : mm) {
+			System.out.printf(m + "\t");
+		}
+		System.out.println();
+	}
+
+	public static void java054() {
+		int[] mm = { 1, 6, 16, 22, 23, 33 };
+		for (int m : mm) {
+			System.out.printf(m + "\t");
+		}
+		System.out.println();
+	}
+
+	public static void java053() {
+		int s = 0;
+		for (int i = 1; i <= 100; i++) {
+			s += i;
+		}
+		System.out.println("1~100의 합 : " + s);
+
+		s = 0;
+		for (int i = 1; i <= 100; i++) {
+			if (i % 2 == 1) {
+				s += i;
+			}
+		}
+		System.out.println("1~100 사이의 홀수의 합 : " + s);
+	}
+
+	public static void java052() {
+		int intNums1 = 123;
+		int intNums2 = -123;
+		System.out.printf("%d : %s%n", intNums1, shifts3(intNums1));
+		System.out.printf("%d : %s%n", intNums2, shifts3(intNums2));
+	}
+
+	public static String shifts3(int a) {
+		int BITMASK = 1;
+		String s = "";
+		for (int i = 0; i < 31; i++) {
+			s = (a & BITMASK) + s;
+			a >>= 1;
+		}
+		return s.substring(s.indexOf('1'));
+	}
+
+	public static void java051() {
+		int intNums1 = 123;
+		int intNums2 = -123;
+		System.out.printf("%d : %s%n", intNums1, shifts2(intNums1));
+		System.out.printf("%d : %s%n", intNums2, shifts2(intNums2));
+	}
+
+	public static int BITMASK = 1;
+
+	public static String shifts2(int a) {
+		int BITMASK = 1;
+		String s = "";
+		for (int i = 0; i < 31; i++) {
+			s = (a & BITMASK) + s;
+			a >>= 1;
+		}
+		return s;
+	}
+
+	public static void java050() {
+		int intNums1 = 123;
+		int intNums2 = -123;
+		System.out.printf("%d : %s%n", intNums1, shifts(intNums1));
+		System.out.printf("%d : %s%n", intNums2, shifts(intNums2));
+	}
+
+	public static String shifts(int a) {
+		String s = "";
+		for (int i = 0; i < 31; i++) {
+			int aa = a % 2;
+			s = (aa >= 0) ? aa + s : (-aa) + s;
+			a >>= 1;
+		}
+		return s;
+	}
+
+	public static void java049() {
+		int number = 1234567;
+		boolean ifPrime = isPrime(number);
+		if (ifPrime) {
+			System.out.printf("%는 1과 자신으로만 나눠떨어지는 소수다.", number);
+		} else {
+			System.out.printf("%d은 소수가 아니다", number);
+		}
+	}
+
+	public static boolean isPrime(int n) {
+		boolean isS = true;
+		for (int i = 2; i <= (int) Math.sqrt(n); i++) {
+			if (n % i == 0) {
+				isS = false;
+				break;
+			}
+		}
+		return isS;
+	}
+
+	public static void java048() {
+		int number = 1234567;
+		int value = sumEach(number);
+		System.out.printf("%d에 대한 각 자리의 숫자 합 : %d", number, value);
+	}
+
+	public static int sumEach(int n) {
+		int tot = 0;
+		while (n != 0) {
+			tot += n % 10;
+			n /= 10;
+		}
+		return tot;
+	}
+
+	public static void java047() {
+		int range = 10;
+		int start = 1;
+		int a = 0, b = 0, c = 0;
+		while (a == b || b == c || c == a) {
+			a = (int) (range * Math.random() + start);
+			b = (int) (range * Math.random() + start);
+			c = (int) (range * Math.random() + start);
+		}
+		System.out.printf("%d\t%d\t%d", a, b, c);
+	}
+
+	public static void java046() {
+		int range = 10;
+		int start = 1;
+		int a = 0, b = 0, c = 0;
+		while (true) {
+			a = (int) (range * Math.random() + start);
+			b = (int) (range * Math.random() + start);
+			c = (int) (range * Math.random() + start);
+			if (a != b && b != c && c != a) {
+				break;
+			}
+		}
+		System.out.printf("%d\t%d\t%d", a, b, c);
+	}
+
+}
